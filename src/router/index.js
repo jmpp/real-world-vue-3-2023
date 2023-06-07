@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import AboutView from '../views/AboutView.vue'
 import EventDetailsView from '../views/EventDetailsView.vue'
 import EventListView from '../views/EventListView.vue'
+import NotFoundView from '../views/NotFoundView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,6 +23,12 @@ const router = createRouter({
       path: '/about',
       name: 'about',
       component: AboutView
+    },
+    {
+      path: '/:pathMatch(.*)',
+      name: 'not-found',
+      component: NotFoundView,
+      props: true
     }
   ]
 })
